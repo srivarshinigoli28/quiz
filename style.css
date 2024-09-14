@@ -1,0 +1,161 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to bottom, #000, #333);
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.quiz-section {
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 8px;
+    padding: 20px;
+    box-sizing: border-box;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    max-width: 600px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    position: relative;
+    z-index: 1;
+    text-align: center;
+}
+
+.background-strip {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 120px; /* Increased height to make the strip thicker */
+    background: #000;
+    overflow: hidden;
+    z-index: 0;
+    transform: translateY(-50%);
+}
+
+.moving-facts {
+    display: flex;
+    white-space: nowrap;
+    animation: moveFacts 15s linear infinite;
+    font-size: 3em;
+    color: #fff;
+    font-weight: bold;
+    text-transform: uppercase;
+    line-height: 120px; 
+}
+
+.moving-facts span {
+    margin-right: 80px;
+}
+
+@keyframes moveFacts {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+}
+
+.question {
+    font-size: 1.5em;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+hr {
+    border: none;
+    border-top: 2px solid #fff;
+    margin: 20px 0;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+}
+
+input[type="radio"] {
+    margin-right: 10px;
+    position: relative;
+    appearance: none;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background-color: #333;
+    border: 2px solid #555;
+    cursor: pointer;
+}
+
+input[type="radio"]:checked::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #fff;
+    transform: translate(-50%, -50%);
+}
+
+label {
+    font-size: 1.2em;
+    color: #fff;
+}
+
+.button {
+    text-align: center;
+    margin-top: 25px;
+}
+
+.button input[type="button"] {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    height: 50px;
+    width: 180px;
+    font-size: 18px;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 50px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.button input[type="button"]:hover {
+    background: #555;
+    transform: scale(1.05);
+}
+
+#start, #restart {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#feedback {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin: 20px 0;
+}
+
+@keyframes popIn {
+    0% { transform: scale(0); opacity: 0; }
+    50% { transform: scale(1.1); opacity: 1; }
+    100% { transform: scale(1); }
+}
+
+.congratulations {
+    animation: popIn 1s ease-out;
+    color: #4CAF50;
+    font-size: 4em;
+    font-weight: bold;
+}
